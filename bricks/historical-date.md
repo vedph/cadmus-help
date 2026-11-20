@@ -10,11 +10,35 @@ nav_order: 1
 
 A historical datatation expressed as century or year, with the addition of some typical metadata: span years, level of uncertainty, chronological range or point.
 
-The datation is expressed as **1 or 2 points on a timeline**: with 1 point you have a punctual datation (whether it's approximate or not); with 2 points you have a range datation, corresponding to an interval, or to a terminus ante or post.
+## Model Overview
 
-The historical date model contains points A and B, both of type `Datation`:
+This model is used wherever datation is more than a simple number for a year or a century, and it effectively requires a structure of its own. For instance, consider this expression: `367/366 B.C.? - ca. 150 A.D. (Roman copy)` (found in SEG 46,1531). We want to preserve all the nouances of similar expressions, but we also want to encode datations in a computable structure, so that a machine can sort or filter items according to its value. In general, many other expressions could represent a date, e.g.:
 
-- when A is defined and B is null, it's a point on the timeline;
+```txt
+unknown
+iii century AD
+before the ii century BC
+after the i century AD (?)
+between the ii and iii century AD
+about iv-iii century BC
+May 30, 178 BC
+136/5 BC
+after 178 BC
+before 136/5 BC
+150-125 BC
+150-145 - 120 BC
+Tiberius reign (14-37 AD)
+```
+
+We could thus start from this timeline, and place a single **point** on it to  cover expressions like "iii century AD", "May 30, 178 BC", "136/5 BC", etc.
+
+By adding another point, we can define an **interval**, which covers  expressions like "between the ii and iii century AD", "about iv-iii century BC", "150-125 BC", "Tiberius reign (14-37 AD)", etc.
+
+Finally, the second point might be somewhere before the first one (as a **_terminus ante_**); or somewhere after it (as a **_terminus post_**).
+
+So, datation is expressed as **1 or 2 points on a timeline**: with 1 point you have a punctual datation (whether it's approximate or not); with 2 points you have a range datation, corresponding to an interval, or to a terminus ante or post. The historical date model contains points A and B:
+
+- when A is defined and B is null, it's a **point** on the timeline;
 
 ```mermaid
 flowchart LR;
@@ -22,7 +46,7 @@ flowchart LR;
 A(point)
 ```
 
-- when A is defined and B undefined, it's a terminus post quem;
+- when A is defined and B undefined, it's a **terminus post quem**;
 
 ```mermaid
 flowchart LR;
@@ -30,7 +54,7 @@ flowchart LR;
 A(A=from) --> B( )
 ```
 
-- when B is defined and A undefined, it's a terminus ante quem:
+- when B is defined and A undefined, it's a **terminus ante quem**:
 
 ```mermaid
 flowchart LR;
@@ -38,13 +62,17 @@ flowchart LR;
 A( ) --> B(B=to)
 ```
 
-- when both A and B are defined, it's an interval:
+- when both A and B are defined, it's an **interval**:
 
 ```mermaid
 flowchart LR;
 
 A(A=from) --> B(B=to)
 ```
+
+Each point has metadata which encode further nuances.
+
+## UI
 
 Use the **A-B toggle** to switch between a 1-point and a 2-points date. Each point has a numeric value (representing a year or a century; negative if BC) and various metadata. You can enter a date in two ways:
 
