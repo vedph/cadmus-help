@@ -1,0 +1,45 @@
+<!-- Image zoom (medium-zoom) -->
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" defer></script>
+<style>
+  /* Keep zoomed images above Just the Docs header and sidebar */
+  .medium-zoom-overlay,
+  .medium-zoom-image--opened {
+    z-index: 9999 !important;
+  }
+  .main-content img:not(a img) {
+    cursor: zoom-in;
+  }
+</style>
+<script>
+  (function () {
+    /* Content images only: skip SVGs and images that are already links */
+    var selector = '.main-content img:not([src$=".svg"])';
+
+    function eligible(img) {
+      return !img.closest("a");
+    }
+
+    function init() {
+      if (typeof window.mediumZoom !== "function") return;
+      var zoom = window.mediumZoom({
+        margin: 24,
+        background: "rgba(0, 0, 0, 0.8)",
+        scrollOffset: 0,
+      });
+      function attachAll() {
+        var imgs = Array.prototype.filter.call(
+          document.querySelectorAll(selector),
+          eligible
+        );
+        /* medium-zoom ignores images that are already attached */
+        if (imgs.length) zoom.attach(imgs);
+      }
+      attachAll();
+      /* catch late/lazy-loaded images */
+      window.addEventListener("load", attachAll);
+    }
+
+    /* deferred script runs before DOMContentLoaded fires */
+    document.addEventListener("DOMContentLoaded", init);
+  })();
+</script>

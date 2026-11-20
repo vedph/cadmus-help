@@ -1,0 +1,13 @@
+{
+    "frontMatter.content.pageFolders": [
+        {
+            "path": "[[workspace]]/img"
+        },
+        {
+            "path": "[[workspace]]/parts"
+        },
+        {
+            "path": "[[workspace]]/bricks"
+        }
+    ]
+}

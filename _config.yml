@@ -1,0 +1,78 @@
+# Site settings
+title: "Cadmus Help"
+description: "Help documentation for Cadmus Projects"
+# url is the host only; the sub-path goes into baseurl
+url: "https://it.vedph.github.io"
+baseurl: "/cadmus-help"
+lang: en
+
+# Theme (pinned for reproducible builds)
+remote_theme: just-the-docs/just-the-docs@v0.10.1
+
+# Markdown & syntax highlighting (fenced code blocks)
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# Just the Docs configuration
+search_enabled: true
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+last_edit_timestamp: false
+enable_copy_code_button: true
+
+# Color scheme
+color_scheme: light
+
+# Navigation and sorting
+nav_sort: case_insensitive
+
+# Mermaid diagram support (```mermaid fenced blocks)
+mermaid:
+  version: "11.4.1"
+
+# Aux links
+aux_links:
+  "GitHub Repository": https://github.com/it.vedph/cadmus-help
+aux_links_new_tab: true
+
+# Edit on GitHub link
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/it.vedph/cadmus-help"
+gh_edit_branch: "main"
+gh_edit_view_mode: "edit"
+
+# Plugins (all whitelisted on GitHub Pages)
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-relative-links
+  - jekyll-default-layout
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+# Convert relative links to .md files into links to the generated pages
+relative_links:
+  enabled: true
+  collections: false
+
+# Files not to publish (README files would otherwise become nav pages)
+exclude:
+  - README.md
+  - img/README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - .jekyll-cache/
+  - .sass-cache/
+  - .vscode/
+  - .idea/
