@@ -1,6 +1,6 @@
 # Cadmus Help
 
-User documentation and reference manual for Cadmus. 🔗 URL: <https://it.vedph.github.io/cadmus-help/>.
+User documentation and reference manual for Cadmus. 🔗 URL: <https://vedph.github.io/cadmus-help/>.
 
 ## Documentation structure
 

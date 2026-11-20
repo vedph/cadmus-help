@@ -2,7 +2,7 @@
 title: "Cadmus Help"
 description: "Help documentation for Cadmus Projects"
 # url is the host only; the sub-path goes into baseurl
-url: "https://it.vedph.github.io"
+url: "https://vedph.github.io"
 baseurl: "/cadmus-help"
 lang: en
 
@@ -40,13 +40,13 @@ mermaid:
 
 # Aux links
 aux_links:
-  "GitHub Repository": https://github.com/it.vedph/cadmus-help
+  "GitHub Repository": https://github.com/vedph/cadmus-help
 aux_links_new_tab: true
 
 # Edit on GitHub link
 gh_edit_link: true
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/it.vedph/cadmus-help"
+gh_edit_repository: "https://github.com/vedph/cadmus-help"
 gh_edit_branch: "main"
 gh_edit_view_mode: "edit"
 
