@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Note Part
+title: Asserted Historical Dates Part
 parent: Parts
 grand_parent: Reference
 nav_order: 1
