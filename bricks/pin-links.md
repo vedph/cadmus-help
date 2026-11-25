@@ -3,10 +3,12 @@ layout: default
 title: Pin Links
 parent: Bricks
 grand_parent: Reference
-nav_order: 3
+nav_order: 4
 ---
 
 # Pin Links
+
+- ⚙️ [model](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-composite-id.md)
 
 Pin links, or more technically **asserted composite identifiers**, are identifiers which can be added to an object to link it to any internal or external resource while also specifying various metadata about the link itself.
 

@@ -3,10 +3,12 @@ layout: default
 title: Historical Date
 parent: Bricks
 grand_parent: Reference
-nav_order: 2
+nav_order: 3
 ---
 
 # Historical Date
+
+- ⚙️ [model](https://github.com/vedph/cadmus-bricks/blob/master/docs/historical-date.md)
 
 A historical datatation expressed as century or year, with the addition of some typical metadata: span years, level of uncertainty, chronological range or point.
 

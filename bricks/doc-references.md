@@ -3,8 +3,12 @@ layout: default
 title: Documental References
 parent: Bricks
 grand_parent: Reference
-nav_order: 1
+nav_order: 2
 ---
+
+# Documental References
+
+- ⚙️ [model](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)
 
 ## Model Overview
 
