@@ -18,9 +18,9 @@ The [model](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-com
 
 - **internal links**, pointing to other objects within the Cadmus database.
 - **external links**, pointing to any external resource (e.g. an entry in an authority file, an entity in a LOD ontology, a web page URL, etc.).
-- **taxonomy links**, pointing to an internal taxonomy separate from the Cadmus database and used as a writeable authority file acting as a middle layer between the Cadmus database and third-party external resources. For instance, in the a project iconographic descriptions are defined by a set of descriptors and subjects from two taxonomies. Each of these taxonomies often has corresponding or partially overlapping entries in third-party authority files, like Biblissima+ or Iconclass; while other entries are project-specific and thus are not found elsewhere. In this case, users want the best of both worlds: they still want to link their descriptions to standard authority files; but at the same time, they need to add their own. The taxonomy works like a middle layer between these two worlds, providing a writeable set of entities (either arranged in a flat set or in a hierarchy) which in turn can be linked to any number of external resources.
+- **taxonomy links**, pointing to an internal taxonomy separate from the Cadmus database and used as a writeable authority file acting as a middle layer between the Cadmus database and third-party external resources. For instance, in the a project iconographic descriptions are defined by a set of descriptors and subjects from two taxonomies. Each of these taxonomies often has corresponding or partially overlapping entries in third-party authority files, like Biblissima+ or Iconclass; while other entries are project-specific and thus are not found elsewhere. In this case, users want the best of both worlds: they still want to link their descriptions to standard authority files; but at the same time, they need to add their own. The taxonomy works like a middle layer between these two worlds, providing a writeable set of entities (either arranged in a flat set or in a hierarchy) which in turn can be linked to any number of external resources. Additionally, taxonomy entries can carry an unlimited set of metadata ("features") in the form of name=value pairs.
 
-Additionally, each link can have **metadata** about itself and the relation it establishes between its source and its target, like:
+Each link can have **metadata** about itself and the relation it establishes between its source and its target, like:
 
 - a generic **tag** to further classify or group links.
 - a **scope** which defines the domain for the identifier used as the link target. For instance, if you link to a VIAF entry, you get a numeric ID. Typically you also want to specify that this number is a VIAF identifier, i.e. refers to the domain of identifiers curated by VIAF. The scope is an arbitrary string identifying that domain. When you pick an external ID (like VIAF) the scope is automatically set (but it is still possible to edit it if you want).
@@ -78,4 +78,20 @@ Whatever approach you take to find your target, in the end the `label` and `GID`
 - label = item EID + `|` + metadata part ID + `(metadata)` (e.g. `alpha | 71821d42-dd44-4d1e-a78a-000000000001 (metadata)`).
 - GID = `P` + metadata part EID + `/eid/` + item EID (e.g. `P71821d42-dd44-4d1e-a78a-000000000019/eid/alpha`).
 
+> Should you want to customize the label or GID according to some other convention, under `pin data` you can see all the essential data from the selected pin.
+
 ### Taxonomy Links
+
+Taxonomies can be defined for any Cadmus project via application configuration. When they are configured, the links brick shows a third source, `taxonomy`. Taxonomies include entries, each of which is called "node", because their internal structure is a tree. This allows to represent both flat lists of entries and hierarchical trees of entries (a flat list simply being a tree with only root-level nodes).
+
+To target a taxonomy entry:
+
+1. in `target`, pick the `taxonomy` source.
+2. if there are more than 1 taxonomy defined, the tree selector appears. Pick the taxonomy you want to use.
+3. click the button below and type a few characters of the taxonomy entry name; when it appears in the list of results, pick it. The target label and GID (which by convention always starts with `@TX`) are automatically filled.
+
+Taxonomies are **writeable** (when your app configuration allows it). This means that if you don't find the entry you want, you can add it (and you can edit existing entries as well). To do this, expand the `Tree Editor` panel below the taxonomy picker. There you can browse the whole taxonomy to locate existing entries, or add a new taxonomy node.
+
+When adding a taxonomy node, typically you will also define its equivalents in third-party authority files or ontologies. The editor allows you to use any configured lookup provider to find these equivalents from services like VIAF, Biblissima+, Iconclass, Pleiades, etc.
+
+This is convenient because it links (maps) your taxonomy to popular authority files or ontologies, while still allowing you to customize it by adding entries which have no equivalent in them. Additionally, you have to do this only once for each added entry: once you define its external mappings, they will be available whenever you target that entry.
