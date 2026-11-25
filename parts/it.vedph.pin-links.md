@@ -3,7 +3,7 @@ layout: default
 title: Pin Links
 parent: Parts
 grand_parent: Reference
-nav_order: 3
+nav_order: 4
 ---
 
 # Pin Links Part
