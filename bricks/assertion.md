@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Documental References
+title: Assertion
 parent: Bricks
 grand_parent: Reference
 nav_order: 1
